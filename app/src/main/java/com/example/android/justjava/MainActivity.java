@@ -21,7 +21,7 @@ import java.text.NumberFormat;
  * This app displays an order form to order coffee.
  */
 public class MainActivity extends AppCompatActivity {
-    private int liczba = 1;
+    private int liczba = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,9 +33,14 @@ public class MainActivity extends AppCompatActivity {
      * This method is called when the order button is clicked.
      */
     public void submitOrder(View view) {
-        display(liczba);
+        String napis = "Koszt: $" + liczba*3;
+        displayMessage(napis);
+        //displayPrice(liczba*3);
     }
 
+    public void minusOrder(View view) {display( --liczba); }
+
+    public void plusOrder(View view) { display( ++liczba);}
     /**
      * This method displays the given quantity value on the screen.
      */
@@ -46,5 +51,10 @@ public class MainActivity extends AppCompatActivity {
     private void displayPrice(int number){
         TextView priceTextView = (TextView) findViewById(R.id.price_text_view);
         priceTextView.setText(NumberFormat.getCurrencyInstance().format(number));
+    }
+
+    private void displayMessage(String message){
+        TextView priceTextView = (TextView) findViewById(R.id.price_text_view);
+        priceTextView.setText(message);
     }
 }

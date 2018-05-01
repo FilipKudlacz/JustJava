@@ -6,20 +6,39 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Quantity"
         android:textAllCaps="true"
         android:layout_marginBottom="16sp"/>
-
-    <TextView
-        android:id="@+id/quantity_text_view"
+    <LinearLayout
         android:layout_width="wrap_content"
-        android:layout_height="16sp"
-        android:text="0"
-        android:textColor="@android:color/black"/>
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <Button
+            android:layout_height="40dp"
+            android:layout_width="40dp"
+            android:text="+"
+            android:onClick="plusOrder"
+            android:layout_marginRight="8dp"
+        />
 
+        <TextView
+            android:id="@+id/quantity_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="16sp"
+            android:text="0"
+            android:textColor="@android:color/black"/>
+        <Button
+            android:layout_height="40dp"
+            android:layout_width="40dp"
+            android:text="-"
+            android:onClick="minusOrder"
+            android:layout_marginLeft="8dp"
+        />
+    </LinearLayout>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -37,6 +56,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16sp"
-        android:text="Button"
+        android:text="Order"
         android:onClick="submitOrder"/>
 </LinearLayout>
